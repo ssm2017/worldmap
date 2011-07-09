@@ -1,1 +1,5 @@
 here is a modification of the worldmap located here : https://github.com/coyled/Egress/tree/master/webmap
+to configure :
+change the values in the files located in the "config" folder.
+to use :
+put the script in a webserver and go there with a web browser.
