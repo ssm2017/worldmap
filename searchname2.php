@@ -11,7 +11,7 @@ mysql_select_db($DB_NAME) or die();
 if (!$mysql) debug("Database connexion error : " . mysql_error());
 
 $scope_id = $_GET["scope_id"];
-$name = mysql_escape_string($_GET["name"]);
+$name = mysql_real_escape_string($_GET["name"]);
 
 $regions = mysql_query("select * from regions where regionName like '$name%' limit 11");
 
@@ -21,7 +21,7 @@ if (mysql_num_rows($regions) < 1) {
   echo "</div>";
   exit;
 }
-  
+
 $i=0;
 
 echo "<div style=\"height: 370px\">";

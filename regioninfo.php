@@ -11,12 +11,12 @@ mysql_select_db($DB_NAME) or die();
 if (!$mysql) debug("Database connexion error : " . mysql_error());
 
 $c        = explode("x", $_GET["coords"]);
-$scope_id = mysql_escape_string($_GET["scopeid"]);
-$user     = mysql_escape_string($_GET["user"]);
-$xx       = mysql_escape_string($c[1]);
-$yy       = mysql_escape_string($c[2]);
-$x        = mysql_escape_string($c[1]) * 256;
-$y        = mysql_escape_string($c[2]) * 256;
+$scope_id = mysql_real_escape_string($_GET["scopeid"]);
+$user     = mysql_real_escape_string($_GET["user"]);
+$xx       = mysql_real_escape_string($c[1]);
+$yy       = mysql_real_escape_string($c[2]);
+$x        = mysql_real_escape_string($c[1]) * 256;
+$y        = mysql_real_escape_string($c[2]) * 256;
 
 if ($scope_id != "00000000-0000-0000-0000-000000000000") {
   $res = mysql_query("select * from regions where locX = '$x' and locY = '$y' and ScopeID='$scope_id'");
@@ -33,7 +33,7 @@ $is_owned               = false;
 $row                    = mysql_fetch_array($res);
 
 if ($row) {
-  $result = mysql_query("select * from UserAccounts where PrincipalID='" . mysql_escape_string($row["owner_uuid"]) . "'");
+  $result = mysql_query("select * from UserAccounts where PrincipalID='" . mysql_real_escape_string($row["owner_uuid"]) . "'");
   $user_row = mysql_fetch_assoc($result);
   mysql_free_result($result);
 

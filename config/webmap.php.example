@@ -1,0 +1,10 @@
+<?php
+$temp = '/tmp/';
+$assets = 'http://localhost:8003';
+$use_ci_osgetasset = FALSE;
+$ci_osgetasset_url = 'http://localhost';
+$xcenter = '1000';
+$ycenter = '1000';
+$xsize = '10000';
+$ysize = '10000';
+?>

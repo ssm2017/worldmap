@@ -11,13 +11,13 @@ mysql_select_db($DB_NAME) or die();
 if (!$mysql) debug("Database connexion error : " . mysql_error());
 
 $c        = explode("x", $_GET["coords"]);
-$scope_id = mysql_escape_string($_GET["scopeid"]);
+$scope_id = mysql_real_escape_string($_GET["scopeid"]);
 $overlays = $_GET["overlays"] | 0;
-$user     = mysql_escape_string($_GET["user"]);
-$xx       = mysql_escape_string($c[1]);
-$yy       = mysql_escape_string($c[2]);
-$x        = mysql_escape_string($c[1]) * 256;
-$y        = mysql_escape_string($c[2]) * 256;
+$user     = mysql_real_escape_string($_GET["user"]);
+$xx       = mysql_real_escape_string($c[1]);
+$yy       = mysql_real_escape_string($c[2]);
+$x        = mysql_real_escape_string($c[1]) * 256;
+$y        = mysql_real_escape_string($c[2]) * 256;
 $size     = $_GET["size"] + 0;
 
 $xmin = $x - 256;
@@ -59,7 +59,12 @@ if (!$row) {
 }
 else {
   echo "<span class=\"map-tooltip\">" . $row["regionName"] . " $xx,$yy</span>\n";
-  echo "regionimg.php?size=$size&uuid=" . $row["regionMapTexture"] . "\n";
+  if ($use_ci_osgetasset) {
+    echo $ci_osgetasset_url. "/getasset/image/". $size. "/". $row["regionMapTexture"]. ".jpg\n";
+  }
+  else {
+    echo "regionimg.php?size=$size&uuid=" . $row["regionMapTexture"] . "\n";
+  }
 
   if ($row["owner_uuid"] == $user) {
     $is_owned = true;
