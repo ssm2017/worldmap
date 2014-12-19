@@ -59,17 +59,21 @@ if (!$row) {
 }
 else {
   echo "<span class=\"map-tooltip\">" . $row["regionName"] . " $xx,$yy</span>\n";
-  if ($use_ci_osgetasset) {
-    echo $ci_osgetasset_url. "/getasset/image/". $size. "/". $row["regionMapTexture"]. ".jpg\n";
-  }
-  else {
-    echo "regionimg.php?size=$size&uuid=" . $row["regionMapTexture"] . "\n";
+  switch ($asset_converter_type) {
+    case 'ci_osgetasset':
+      echo $asset_converter_url. "/getasset/image/". $size. "/". $row["regionMapTexture"]. ".jpg\n";
+      break;
+    case 'd4os':
+      echo $asset_converter_url. "/grid/services/assets/0/". $size. "/". $row["regionMapTexture"]. "\n";
+      break;
+    default:
+      echo "regionimg.php?size=$size&uuid=" . $row["regionMapTexture"] . "\n";
+      break;
   }
 
   if ($row["owner_uuid"] == $user) {
     $is_owned = true;
   }
-
 }
 
 $extrastyle = "";

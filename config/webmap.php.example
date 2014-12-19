@@ -1,8 +1,12 @@
 <?php
 $temp = '/tmp/';
+// asset_converter_type can be 'local' or 'ci_osgetasset' or 'd4os'
+$asset_converter_type = 'local';
+// asset_converter_url is the converter url. ex: http://mywebsite.com
+$asset_converter_url = 'http://localhost';
+// assets is used only if asset_converter_type = 'local'
 $assets = 'http://localhost:8003';
-$use_ci_osgetasset = FALSE;
-$ci_osgetasset_url = 'http://localhost';
+// default map options
 $xcenter = '1000';
 $ycenter = '1000';
 $xsize = '10000';
