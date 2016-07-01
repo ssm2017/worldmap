@@ -1,6 +1,6 @@
 <?php
 $temp = '/tmp/';
-// asset_converter_type can be 'local' or 'ci_osgetasset' or 'd4os'
+// asset_converter_type can be 'local' or 'ci_osgetasset' or 'd4os' or gettexture
 $asset_converter_type = 'local';
 // asset_converter_url is the converter url. ex: http://mywebsite.com
 $asset_converter_url = 'http://localhost';

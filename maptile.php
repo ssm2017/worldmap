@@ -66,6 +66,9 @@ else {
     case 'd4os':
       echo $asset_converter_url. "/grid/services/assets/0/". $size. "/". $row["regionMapTexture"]. "\n";
       break;
+    case 'gettexture':
+      echo $asset_converter_url. "?texture_id=". $row["regionMapTexture"]. '&format=jpg&width='. $size. "\n";
+      break;
     default:
       echo "regionimg.php?size=$size&uuid=" . $row["regionMapTexture"] . "\n";
       break;
