@@ -8,15 +8,15 @@
  * 'd4os' : textures are taken on a distant server using http://drupal.org/project/d4os
  * 'gettexture' : textures are taken on a distant server using https://github.com/ssm2017/osgettexture
  * or the CAPS/GetTexture capability http://opensimulator.org/wiki/Direct_Service_Requests#Direct_GetTexture_capability_handling
- * 'robust' : textures are taken on a distant server using OpenSimu.exe or Robust.exe.
+ * 'opensim' : textures are taken on a distant server using OpenSimu.exe or Robust.exe.
  */
-$asset_converter_type = 'robust';
+$asset_converter_type = 'opensim';
 
 /**
  * =====================
  * Asset converter url
  * =====================
- * This url is needed to display the map tile if the asset converter type is not set to "local" or "robust".
+ * This url is needed to display the map tile if the asset converter type is not set to "local".
  * The port needs to be in the url (no trailing slash).
  * ex : http://mysimulator.com:8002
  */

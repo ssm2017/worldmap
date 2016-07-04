@@ -69,7 +69,7 @@ else {
     case 'gettexture':
       echo $asset_converter_url. "?texture_id=". $row["regionMapTexture"]. '&format=jpg&width='. $size. "\n";
       break;
-    case 'robust':
+    case 'opensim':
       echo $asset_converter_url. '/map-1-'. $xx. '-'. $yy. '-objects.jpg'. "\n";
       break;
     default:
