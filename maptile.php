@@ -69,6 +69,9 @@ else {
     case 'gettexture':
       echo $asset_converter_url. "?texture_id=". $row["regionMapTexture"]. '&format=jpg&width='. $size. "\n";
       break;
+    case 'robust':
+      echo $asset_converter_url. '/map-1-'. $xx. '-'. $yy. '-objects.jpg'. "\n";
+      break;
     default:
       echo "regionimg.php?size=$size&uuid=" . $row["regionMapTexture"] . "\n";
       break;
